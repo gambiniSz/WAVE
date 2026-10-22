@@ -1,1 +1,3 @@
-
+DATABASE_URL="postgresql+asyncpg://postgres.hpawgifxvtfumgwxklky:%40Wavegui1290@aws-0-sa-east-1.pooler.supabase.com:5432/postgres"
+JWT_SECRET=qb3TAVlKIBoysCkEmfauVdJeqGzObqe-fI8xlIgpCIAMKP-hu8LM21dSQ3FobUFR
+JWT_EXPIRE_MINUTES=1440
