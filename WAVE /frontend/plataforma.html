@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plataforma | Wave</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="top">
+  <a href="index.html" class="logo">WAVE</a>
+  <div class="links"><a href="problema.html">O problema</a><a href="recursos.html">Recursos</a><a href="plataforma.html">Plataforma</a><a href="equipe.html">Equipe</a><a href="problema.html" aria-current="page">O problema</a><a href="recursos.html">Recursos</a><a href="plataforma.html">Plataforma</a><a href="equipe.html">Equipe</a><a href="problema.html">O problema</a><a href="recursos.html" aria-current="page">Recursos</a><a href="plataforma.html">Plataforma</a><a href="equipe.html">Equipe</a><a href="problema.html">O problema</a><a href="recursos.html">Recursos</a><a href="plataforma.html" aria-current="page">Plataforma</a><a href="equipe.html">Equipe</a></div>
+  <a href="plataforma.html" class="btn sm">Entrar</a>
+</nav>
+
+<main class="inner">
+<section id="app" class="sec">
+  <h2>A plataforma</h2>
+  <div id="demo" class="note" hidden>Modo demonstração: a API não respondeu, então os dados abaixo são de exemplo e ficam só neste navegador.</div>
+  <div class="tabs" role="tablist">
+    <button class="on" data-t="painel">Painel</button><button data-t="mapa">Mapa</button><button data-t="equip">Equipamentos</button><button data-t="pesc">Pescadores</button><button data-t="vend">Vendas</button>
+  </div>
+
+  <div id="painel" class="pane">
+    <div class="stats">
+      <div class="stat"><b id="s-p">0</b><span>pescadores</span></div>
+      <div class="stat"><b id="s-l">0</b><span>locais de pesca</span></div>
+      <div class="stat"><b id="s-v">R$ 0</b><span>vendido</span></div>
+    </div>
+    <h3>Avisos importantes</h3><div id="avisos"></div>
+  </div>
+
+  <div id="mapa" class="pane" hidden>
+    <div id="map"></div><div id="l-lista"></div>
+    <h3>Cadastrar local</h3>
+    <div class="form">
+      <input id="l-nome" placeholder="Nome da área">
+      <div class="r2"><input id="l-lat" type="number" step="any" placeholder="Latitude"><input id="l-lng" type="number" step="any" placeholder="Longitude"></div>
+      <select id="l-sit"><option>Liberado</option><option>Proibido</option><option>Defeso</option><option>Atenção</option></select>
+      <textarea id="l-desc" rows="2" placeholder="Descrição"></textarea>
+      <button class="btn" id="l-ok">Salvar local</button>
+    </div>
+  </div>
+
+  <div id="equip" class="pane" hidden>
+    <h3>Minha lista de equipamentos</h3>
+    <div class="form">
+      <label for="e-pesc">Pescador</label>
+      <select id="e-pesc"></select>
+    </div>
+    <div id="k-box" class="tbl"></div>
+    <div id="k-form" class="form">
+      <div class="r2"><input id="k-nome" placeholder="Equipamento (ex.: Rede, Anzol, Boia)"><input id="k-qtd" type="number" min="1" step="1" value="1" placeholder="Quantidade"></div>
+      <button class="btn" id="k-add">Adicionar à lista</button>
+    </div>
+    <div id="k-acoes" class="row"></div>
+    <div id="k-res"></div>
+
+    <h3 style="margin-top:32px">Para alugar ou compartilhar</h3>
+    <div id="e-lista" class="feat"></div>
+  </div>
+
+  <div id="pesc" class="pane" hidden>
+    <div id="p-lista"></div>
+    <h3 id="p-tit">Novo pescador</h3>
+    <div class="form">
+      <input id="p-nome" placeholder="Nome"><input id="p-email" type="email" placeholder="E-mail">
+      <div class="r2"><input id="p-tel" placeholder="Telefone"><input id="p-end" placeholder="Endereço"></div>
+      <div class="row"><button class="btn" id="p-ok">Salvar pescador</button><button class="btn ghost dk" id="p-cancel" hidden>Cancelar</button></div>
+    </div>
+  </div>
+
+  <div id="vend" class="pane" hidden>
+    <div id="v-lista"></div>
+    <h3>Anunciar venda</h3>
+    <div class="form">
+      <select id="v-pesc"></select>
+      <div class="r2"><input id="v-data" type="date"><input id="v-valor" type="number" step="0.01" min="0" placeholder="Valor (R$)"></div>
+      <textarea id="v-desc" rows="2" placeholder="O que foi vendido? Ex.: 5 kg de tilápia"></textarea>
+      <button class="btn" id="v-ok">Registrar venda</button>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>Wave · Projeto alinhado à ODS 14 (Vida na água) · Dados pessoais tratados conforme a LGPD</footer>
+<div id="toast" class="toast" hidden></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="app.js"></script>
+</body></html>
